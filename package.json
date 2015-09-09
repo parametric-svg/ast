@@ -40,7 +40,9 @@
     "/License.md"
   ],
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "parametric-svg"
+  ],
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
   "repository": {
     "type": "git",
