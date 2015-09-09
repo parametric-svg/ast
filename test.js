@@ -4,41 +4,44 @@ const test = require('tape-catch');
 const Set = require('es6-set');
 
 test('Returns an object of the right shape', (is) => {
+  const [attributes, defaults] = [[], []];
+
   is.equal(
-    ast({attributes: [], defaults: {}}).type,
+    ast({attributes, defaults}).type,
     'ParametricSvgAst',
     'with the `type` property of the right value'
   );
 
   is.equal(
-    ast({attributes: [], defaults: {}}).version,
+    ast({attributes, defaults}).version,
     1,
     'with the `version` property of the right value'
   );
 
   is.equal(
-    ast({attributes: [], defaults: {}}).attributes.constructor,
+    ast({attributes, defaults}).attributes.constructor,
     Set,
     'with a `attributes: Set` property'
   );
 
   is.equal(
-    ast({attributes: [], defaults: {}}).defaults.constructor,
-    Object,
-    'with a `defaults: Object` property'
+    ast({attributes, defaults}).defaults.constructor,
+    Set,
+    'with a `defaults: Set` property'
   );
 
   is.end();
 });
 
 test('Returns correct `.attributes`', (is) => {
+  const defaults = [];
+
   is.equal(
-    ast({attributes: [], defaults: {}}).attributes.size,
+    ast({attributes: [], defaults}).attributes.size,
     0,
     'of zero size for an empty array'
   );
 
-  const defaults = {};
   const attributes = [
     {address: [0],        name: 'a', dependencies: [], relation: () => {}},
     {address: [14],       name: 'a', dependencies: [], relation: () => {}},
@@ -51,7 +54,7 @@ test('Returns correct `.attributes`', (is) => {
       {attributes, defaults}
     ).attributes.size,
     4,
-    'of size `4` for an array of four nodes'
+    'of size `4` for an array of four attributes'
   );
 
   is.equal(
@@ -59,25 +62,42 @@ test('Returns correct `.attributes`', (is) => {
       {attributes: new Set(attributes), defaults}
     ).attributes.size,
     4,
-    'of size `4` for a set of four nodes'
+    'of size `4` for a set of four attributes'
   );
 
   is.end();
 });
 
 test('Returns correct `.defaults`', (is) => {
-  const defaults = {a: 10};
+  const attributes = [];
 
-  is.deepEqual(
-    ast({attributes: [], defaults}).defaults,
-    defaults,
-    'of identical content as the input `defaults`'
+  is.equal(
+    ast({attributes, defaults: []}).defaults.size,
+    0,
+    'of zero size for an empty array'
   );
 
-  is.notEqual(
-    ast({attributes: [], defaults}).defaults,
-    defaults,
-    'a clone, not a reference'
+  const defaults = [
+    {identifier: 'a', dependencies: [], relation: () => {}},
+    {identifier: 'b', dependencies: [], relation: () => {}},
+    {identifier: 'c', dependencies: [], relation: () => {}},
+    {identifier: 'd', dependencies: [], relation: () => {}},
+  ];
+
+  is.equal(
+    ast(
+      {attributes, defaults}
+    ).defaults.size,
+    4,
+    'of size `4` for an array of four defaults'
+  );
+
+  is.equal(
+    ast(
+      {attributes, defaults: new Set(defaults)}
+    ).defaults.size,
+    4,
+    'of size `4` for a set of four defaults'
   );
 
   is.end();
@@ -94,6 +114,12 @@ test('Enforces types to some extent', (is) => {
     () => ast({attributes: {}}),
     TypeError,
     'fails with a helpful message if `attributes` isn’t iterable'
+  );
+
+  is.throws(
+    () => ast({defaults: {}}),
+    TypeError,
+    'fails with a helpful message if `defaults` isn’t iterable'
   );
 
   is.end();

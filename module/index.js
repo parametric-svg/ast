@@ -28,7 +28,7 @@ const assign = require('object-assign');
   *     they appear in `dependencies`. The relation of a parametric attribute
   *     declared as `a - b * 5` is `(a, b) => a - b * 5`.
   *
-  * @param {Object[]} [args.defaults = []]
+  * @param {Object[]} args.defaults
   *   An iterable of objects, each representing a `<ref>` element
   *   – the default value of a variable. Each should contain
   *   the following properties:
