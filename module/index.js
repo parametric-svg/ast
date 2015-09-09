@@ -8,11 +8,11 @@ const Set = require('es6-set');
   *   An iterable of objects, each representing a parametric attribute.
   *
   * @param {Number[]} args.attributes.address
-  *   An array defining the path of the attribute’s parent node
+  *   An array defining the path of the attribute’s parent element
   *   in its XML DOM tree as a series of numbers. The address
-  *   of the root node is `[]`. The address of the `n`th node `a`
-  *   in any other node `b` is `[...<address of b>, n - 1]`. For example,
-  *   the node `<c>` in the document `<a>some text<b><c></c></b></a>`
+  *   of the root element is `[]`. The address of the `n`th element `a`
+  *   in any other element `b` is `[...<address of b>, n - 1]`. For example,
+  *   the element `<c>` in the document `<a>some<b /> text<b><c /></b></a>`
   *   has the address `[1, 0]`.
   *
   * @param {String} args.attributes.name
