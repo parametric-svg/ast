@@ -71,11 +71,23 @@ const myAst = ast({
     },
   ],
 
-  defaults: {
-    a: 10,
-    b: 20,
-  },
-);
+  defaults: [
+    {
+      identifier: 'a',
+      dependencies: [],
+      relation: () => 10,
+    },
+    {
+      identifier: 'b',
+      dependencies: [],
+      relation: () => 20,
+    },
+  ]
+});
+//» { type: 'ParametricSvgAst',
+//    version: 1,
+//    attributes: [object Set],
+//    defaults: [object Set] }
 ```
 
 
