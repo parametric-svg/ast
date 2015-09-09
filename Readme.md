@@ -34,6 +34,7 @@ This repo describes the structure of objects that different parts of parametric.
 
 
 
+
 <div                                                  id="/install">&nbsp;</div>
 
 Install
@@ -42,6 +43,7 @@ Install
 ```sh
 npm install parametric-svg-ast
 ```
+
 
 
 
@@ -75,6 +77,7 @@ const myAst = ast({
   },
 );
 ```
+
 
 
 
