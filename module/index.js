@@ -46,6 +46,6 @@ export default ({attributes, defaults}) => {
     type: 'ParametricSvgAst',
     version: 1,
     attributes: new Set(attributes),
-    defaults: assign({}, defaults),
+    defaults: new Set(defaults),
   };
 };
