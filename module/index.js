@@ -1,5 +1,4 @@
 const Set = require('es6-set');
-const assign = require('object-assign');
 
  /**
   * @module {Function} parametric-svg-ast
