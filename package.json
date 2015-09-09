@@ -1,7 +1,7 @@
 {
-  "name": "ast",
+  "name": "parametric-svg-ast",
   "version": "0.0.0-work-in-progress",
-  "description": "A standard Abstract Source Tree structure for parametric.svg",
+  "description": "The internal format of parametric.svg",
   "dependencies": {
     "es6-set": "^0.1.1",
     "object-assign": "^4.0.1"
