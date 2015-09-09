@@ -30,7 +30,7 @@ parametric.svg AST
 What’s up?
 ----------
 
-This repo describes the structure of objects used that different parts of parametric.svg use to communicate with each other. [Here](https://github.com/parametric-svg/js/issues/2)’s some reasoning behind the idea.
+This repo describes the structure of objects that different parts of parametric.svg use to communicate with each other. [Here](https://github.com/parametric-svg/js/issues/2)’s some reasoning behind the idea.
 
 
 
