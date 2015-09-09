@@ -83,9 +83,17 @@ test('Returns correct `.defaults`', (is) => {
   is.end();
 });
 
-test.skip('Enforces types', (is) => {
-  is.equal(
-    'fails with a helpful message if `parameters` isn’t an iterator'
+test('Enforces types to some extent', (is) => {
+  is.throws(
+    () => ast(),
+    TypeError,
+    'fails with a helpful message if called without arguments'
+  );
+
+  is.throws(
+    () => ast({parameters: {}}),
+    TypeError,
+    'fails with a helpful message if `parameters` isn’t iterable'
   );
 
   is.end();
