@@ -1,6 +1,6 @@
 {
   "name": "parametric-svg-ast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The internal format of parametric.svg",
   "dependencies": {
     "es6-set": "^0.1.1"
