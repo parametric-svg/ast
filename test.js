@@ -65,6 +65,24 @@ test('Returns correct `.parameters`', (is) => {
   is.end();
 });
 
+test('Returns correct `.defaults`', (is) => {
+  const defaults = {a: 10};
+
+  is.deepEqual(
+    ast({parameters: [], defaults}).defaults,
+    defaults,
+    'of identical content as the input `defaults`'
+  );
+
+  is.notEqual(
+    ast({parameters: [], defaults}).defaults,
+    defaults,
+    'a clone, not a reference'
+  );
+
+  is.end();
+});
+
 test.skip('Enforces types', (is) => {
   is.equal(
     'fails with a helpful message if `parameters` isn’t an iterator'
