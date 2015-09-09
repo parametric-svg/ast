@@ -53,14 +53,27 @@ Use
 ```js
 const ast = require('parametric-svg-ast');
 
-const myAst = ast([
-  [[2, 5, 4], {
-    width: {dependencies: ['a', 'b'], relation: (a, b) => a + b},
-  }],
-  [[4, 8], {
-    height: {dependencies: [], relation: () => 45},
-  }],
-]);
+const myAst = ast({
+  parameters: [
+    {
+      address: [2, 5, 4],
+      name: 'width',
+      dependencies: ['a', 'b'],
+      relation: (a, b) => a + b,
+    },
+    {
+      address: [4, 8],
+      name: 'height',
+      dependencies: [],
+      relation: () => 59,
+    },
+  ],
+
+  defaults: {
+    a: 10,
+    b: 20,
+  },
+);
 ```
 
 
