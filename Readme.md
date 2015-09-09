@@ -54,7 +54,7 @@ Use
 const ast = require('parametric-svg-ast');
 
 const myAst = ast({
-  parameters: [
+  attributes: [
     {
       address: [2, 5, 4],
       name: 'width',

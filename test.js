@@ -5,25 +5,25 @@ const Set = require('es6-set');
 
 test('Returns an object of the right shape', (is) => {
   is.equal(
-    ast({parameters: [], defaults: {}}).type,
+    ast({attributes: [], defaults: {}}).type,
     'ParametricSvgAst',
     'with the `type` property of the right value'
   );
 
   is.equal(
-    ast({parameters: [], defaults: {}}).version,
+    ast({attributes: [], defaults: {}}).version,
     1,
     'with the `version` property of the right value'
   );
 
   is.equal(
-    ast({parameters: [], defaults: {}}).parameters.constructor,
+    ast({attributes: [], defaults: {}}).attributes.constructor,
     Set,
-    'with a `parameters: Set` property'
+    'with a `attributes: Set` property'
   );
 
   is.equal(
-    ast({parameters: [], defaults: {}}).defaults.constructor,
+    ast({attributes: [], defaults: {}}).defaults.constructor,
     Object,
     'with a `defaults: Object` property'
   );
@@ -31,15 +31,15 @@ test('Returns an object of the right shape', (is) => {
   is.end();
 });
 
-test('Returns correct `.parameters`', (is) => {
+test('Returns correct `.attributes`', (is) => {
   is.equal(
-    ast({parameters: [], defaults: {}}).parameters.size,
+    ast({attributes: [], defaults: {}}).attributes.size,
     0,
     'of zero size for an empty array'
   );
 
   const defaults = {};
-  const parameters = [
+  const attributes = [
     {address: [0],        name: 'a', dependencies: [], relation: () => {}},
     {address: [14],       name: 'a', dependencies: [], relation: () => {}},
     {address: [2, 7, 3],  name: 'a', dependencies: [], relation: () => {}},
@@ -48,16 +48,16 @@ test('Returns correct `.parameters`', (is) => {
 
   is.equal(
     ast(
-      {parameters, defaults}
-    ).parameters.size,
+      {attributes, defaults}
+    ).attributes.size,
     4,
     'of size `4` for an array of four nodes'
   );
 
   is.equal(
     ast(
-      {parameters: new Set(parameters), defaults}
-    ).parameters.size,
+      {attributes: new Set(attributes), defaults}
+    ).attributes.size,
     4,
     'of size `4` for a set of four nodes'
   );
@@ -69,13 +69,13 @@ test('Returns correct `.defaults`', (is) => {
   const defaults = {a: 10};
 
   is.deepEqual(
-    ast({parameters: [], defaults}).defaults,
+    ast({attributes: [], defaults}).defaults,
     defaults,
     'of identical content as the input `defaults`'
   );
 
   is.notEqual(
-    ast({parameters: [], defaults}).defaults,
+    ast({attributes: [], defaults}).defaults,
     defaults,
     'a clone, not a reference'
   );
@@ -91,9 +91,9 @@ test('Enforces types to some extent', (is) => {
   );
 
   is.throws(
-    () => ast({parameters: {}}),
+    () => ast({attributes: {}}),
     TypeError,
-    'fails with a helpful message if `parameters` isn’t iterable'
+    'fails with a helpful message if `attributes` isn’t iterable'
   );
 
   is.end();
