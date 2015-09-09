@@ -1,9 +1,11 @@
-const Map = require('es6-map');
+const Set = require('es6-set');
+const assign = require('object-assign');
 
-export default (parameters) => {
+export default ({parameters, defaults}) => {
   return {
     type: 'ParametricSvgAst',
     version: 1,
-    parameters: new Map(parameters),
+    parameters: new Set(parameters),
+    defaults: assign({}, defaults),
   };
 };
