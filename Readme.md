@@ -1,12 +1,12 @@
 [![Coveralls – test coverage
-](https://img.shields.io/coveralls/tomekwi/ast.svg?style=flat-square)
-](https://coveralls.io/r/tomekwi/ast)
+](https://img.shields.io/coveralls/parametric-svg/ast.svg?style=flat-square)
+](https://coveralls.io/r/parametric-svg/ast)
  [![Travis – build status
-](https://img.shields.io/travis/tomekwi/ast/master.svg?style=flat-square)
-](https://travis-ci.org/tomekwi/ast)
+](https://img.shields.io/travis/parametric-svg/ast/master.svg?style=flat-square)
+](https://travis-ci.org/parametric-svg/ast)
  [![David – status of dependencies
-](https://img.shields.io/david/tomekwi/ast.svg?style=flat-square)
-](https://david-dm.org/tomekwi/ast)
+](https://img.shields.io/david/parametric-svg/ast.svg?style=flat-square)
+](https://david-dm.org/parametric-svg/ast)
  [![Stability: experimental
 ](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)
 ](https://nodejs.org/api/documentation.html#documentation_stability_index)
@@ -25,7 +25,7 @@ ast
 
 **Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
 
-[Thoughts and ideas]:  https://github.com/tomekwi/ast/issues
+[Thoughts and ideas]:  https://github.com/parametric-svg/ast/issues
 
 
 
