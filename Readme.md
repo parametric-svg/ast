@@ -86,9 +86,7 @@ const myAst = ast({
 API
 ---
 
-<!-- @doxie.inject start -->
-*Work in progress…*
-<!-- @doxie.inject end -->
+See the API docs [in the source](./module/index.js). If you can help us render them in the readme, that would be [awesome](https://github.com/parametric-svg/ast/issues/1)!
 
 
 
