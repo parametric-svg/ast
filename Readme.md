@@ -17,37 +17,62 @@
 
 
 
-ast
-===
+parametric.svg AST
+==================
 
-**A standard Abstract Source Tree structure for parametric.svg**
-
-
-**Heads up!** This is totally a work in progress. [Thoughts and ideas][] are very welcome.
-
-[Thoughts and ideas]:  https://github.com/parametric-svg/ast/issues
+**The internal format of parametric.svg**
 
 
 
 
-<div                                             id="/installation">&nbsp;</div>
+<div                                                 id="/whats-up">&nbsp;</div>
 
-Installation
-------------
+What’s up?
+----------
+
+This repo describes the structure of objects used that different parts of parametric.svg use to communicate with each other. [Here](https://github.com/parametric-svg/js/issues/2)’s some reasoning behind the idea.
+
+
+
+<div                                                  id="/install">&nbsp;</div>
+
+Install
+-------
 
 ```sh
-$ npm install ast
+npm install parametric-svg-ast
 ```
 
 
 
+<div                                                      id="/use">&nbsp;</div>
 
-<div                                                    id="/usage">&nbsp;</div>
+Use
+---
 
-Usage
------
+```js
+const ast = require('parametric-svg-ast');
 
+const myAst = ast([
+  [[2, 5, 4], {
+    width: {dependencies: ['a', 'b'], relation: (a, b) => a + b},
+  }],
+  [[4, 8], {
+    height: {dependencies: [], relation: () => 45},
+  }],
+]);
+```
+
+
+
+<div                                                      id="/api">&nbsp;</div>
+
+API
+---
+
+<!-- @doxie.inject start -->
 *Work in progress…*
+<!-- @doxie.inject end -->
 
 
 
